@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+
+import { Router } from '@angular/router';
+import { AuthService } from './auth/auth.service';
 
 @Component({
-  imports: [NxWelcomeComponent, RouterModule],
-  selector: 'app-root',
+  selector: 'app-navbar',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  
 })
-export class AppComponent {
-  title = 'org';
+export class  AppComponent{
+  constructor(private authService: AuthService, private router: Router) {}
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 }

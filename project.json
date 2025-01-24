@@ -52,6 +52,9 @@
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+    "proxyConfig": "src/app/proxy.conf.json" 
+  },
       "configurations": {
         "production": {
           "buildTarget": "org:build:production"
@@ -78,7 +81,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectName}"],
       "options": {
-        "jestConfig": "jest.config.ts"
+        "jestConfig": "jest.config.app.ts"
       }
     },
     "serve-static": {

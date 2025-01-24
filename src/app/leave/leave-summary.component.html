@@ -1,0 +1,23 @@
+<div class="leave-summary-container">
+  <h2>Récapitulatif des demandes de congé</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Date de début</th>
+        <th>Date de fin</th>
+        <th>Type</th>
+        <th>Statut</th>
+        <th>Commentaires</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of leaveRequests">
+        <td>{{ request.startDate }}</td>
+        <td>{{ request.endDate }}</td>
+        <td>{{ request.type }}</td>
+        <td>{{ request.status || 'En attente' }}</td>
+        <td>{{ request.comments }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
